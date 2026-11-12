@@ -1,0 +1,26 @@
+import numpy as np
+import math
+from numpy.typing import NDArray
+
+
+class Solution:
+    
+    def sigmoid(self, z: NDArray[np.float64]) -> NDArray[np.float64]:
+        # z is a 1D NumPy array
+        # Formula: 1 / (1 + e^(-z))
+        # return np.round(your_answer, 5)
+        e = math.e
+        for i in range(0, len(z)):
+            z[i] = round(1/(1 + e**(-z[i])), 5)
+
+        return z
+        pass
+
+    def relu(self, z: NDArray[np.float64]) -> NDArray[np.float64]:
+        # z is a 1D NumPy array
+        # Formula: max(0, z) element-wise
+        for i in range(0, len(z)):
+            z[i] = max(0, z[i])
+
+        return z
+        pass
